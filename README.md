@@ -1,7 +1,7 @@
 Journey Journal
   A blog focused on journeys around the world
 The diagram represents an AWS architecture for deploying a WordPress blog named "Journey Journal." Here's a breakdown of the components:
-![image](https://github.com/user-attachments/assets/a60ef541-b4fd-4376-aa32-b7c046f4936c)
+![image](https://github.com/user-attachments/assets/b66ddc21-a447-4f1a-ad12-677b24f23627)
 AWS Cloud Infrastructure
 Region and VPC
 The architecture is set within a specific AWS region.
