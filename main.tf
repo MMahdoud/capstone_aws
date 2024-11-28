@@ -10,10 +10,10 @@ resource "aws_vpc" "dev_vpc" {
 }
 
 # Create an Internet Gateway
-resource "aws_internet_gateway" "dev_igw" {
-  vpc_id = aws_vpc.dev_vpc.id
-  tags = {
-    Name = "dev_igw_webserver"
-  }
-}
+#resource "aws_internet_gateway" "dev_igw" {
+ # vpc_id = aws_vpc.dev_vpc.id
+ # tags = {
+ #   Name = "dev_igw_webserver"
+ # }
+# }
 
