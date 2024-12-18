@@ -5,14 +5,14 @@ resource "aws_vpc" "dev_vpc" {
   enable_dns_support = true
   
   tags       =  {
-    name     = "deham9"
+    Name     = "deham9"
   }       
 }
 
 resource "aws_subnet" "public-1" {
   vpc_id     = aws_vpc.dev_vpc.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "us-west-2a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -23,7 +23,7 @@ resource "aws_subnet" "public-1" {
 resource "aws_subnet" "private-1" {
   vpc_id     = aws_vpc.dev_vpc.id 
   cidr_block = "10.0.2.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "us-west-2a"
 
   tags = {
     Name = "deham9" 
@@ -33,7 +33,7 @@ resource "aws_subnet" "private-1" {
 resource "aws_subnet" "public-2" {
   vpc_id     = aws_vpc.dev_vpc.id
   cidr_block = "10.0.3.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "us-west-2b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -44,7 +44,7 @@ resource "aws_subnet" "public-2" {
 resource "aws_subnet" "private-2" {
   vpc_id     = aws_vpc.dev_vpc.id 
   cidr_block = "10.0.4.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "us-west-2b"
 
   tags = {
     Name = "deham9" 
@@ -56,21 +56,6 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.dev_vpc.id
   tags = {
     Name = "deham9"
-  }
-}
-
-# Allocate Elastic IP for NAT Gateway
-resource "aws_eip" "nat_eip" {
-  vpc = true
-}
-
-# Create a NAT Gateway for the private subnet(s) to access the internet
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat_eip.id
-  subnet_id = aws_subnet.public-1.id # Reference public subnet ID
-
-  tags = {
-    Name = "nat-gw" 
   }
 }
 
